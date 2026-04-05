@@ -1,0 +1,15 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+button {
+  border-radius: 8px !important;
+}
+
+#generatedHash {
+  word-break: break-all;
+}
