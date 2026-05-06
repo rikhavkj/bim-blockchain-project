@@ -2,159 +2,159 @@ let web3;
 let contract;
 let account;
 
-const contractAddress = "0x371Df1dcFD939D64392323C24a11b43D69088e45";
+const contractAddress = "0x0657BbC24Ae9176c6c5De9cf660c3f18625797F7";
 
 // 👉 Paste ABI here
 const abi = [
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "fileId",
-        "type": "uint256"
-      }
-    ],
-    "name": "checkAccess",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "fileId",
-        "type": "uint256"
-      }
-    ],
-    "name": "deleteFile",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "fileCount",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "files",
-    "outputs": [
-      {
-        "internalType": "string",
-        "name": "fileName",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "fileHash",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "ipfsCID",
-        "type": "string"
-      },
-      {
-        "internalType": "bool",
-        "name": "isDeleted",
-        "type": "bool"
-      },
-      {
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "fileId",
-        "type": "uint256"
-      }
-    ],
-    "name": "getFile",
-    "outputs": [
-      {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "fileId",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "user",
-        "type": "address"
-      }
-    ],
-    "name": "grantAccess",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "_name",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "_hash",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "_cid",
-        "type": "string"
-      }
-    ],
-    "name": "uploadFile",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  }
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "fileId",
+				"type": "uint256"
+			}
+		],
+		"name": "checkAccess",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "fileId",
+				"type": "uint256"
+			}
+		],
+		"name": "deleteFile",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "fileCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "files",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "fileName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "fileHash",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "ipfsCID",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "isDeleted",
+				"type": "bool"
+			},
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "fileId",
+				"type": "uint256"
+			}
+		],
+		"name": "getFile",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "fileId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "grantAccess",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_hash",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_cid",
+				"type": "string"
+			}
+		],
+		"name": "uploadFile",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
 ]
 
 async function connectWallet() {
@@ -210,7 +210,8 @@ async function uploadFile() {
 
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = "decryption_key.txt";
+    const safeFileName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, "_");
+    a.download = `decryption_key_${safeFileName}.txt`;
     a.click();
 
     document.getElementById("uploadResult").innerHTML =
@@ -255,7 +256,7 @@ async function encryptFile(file) {
   };
 }
 
-async function decryptFile(cid, keyBase64, ivBase64) {
+async function decryptFile(cid, keyBase64, ivBase64, fileName) {
 
   const response = await fetch(`https://gateway.pinata.cloud/ipfs/${cid}`);
   const encryptedBuffer = await response.arrayBuffer();
@@ -278,12 +279,13 @@ async function decryptFile(cid, keyBase64, ivBase64) {
   );
 
   const blob = new Blob([decrypted]);
+  const url = URL.createObjectURL(blob);
 
   // 👇 Show options
   document.getElementById("fileResult").innerHTML = `
     ✅ Decryption Successful <br><br>
-    <button class="btn btn-success" onclick="viewBlob('${URL.createObjectURL(blob)}')">View File</button>
-    <button class="btn btn-primary" onclick="downloadBlob('${URL.createObjectURL(blob)}')">Download File</button>
+    <button class="btn btn-success" onclick="viewBlob('${url}')">View File</button>
+    <button class="btn btn-primary" onclick="downloadBlob('${url}', '${fileName}')">Download File</button>
   `;
 }
 
@@ -291,10 +293,13 @@ function viewBlob(url) {
   window.open(url);
 }
 
-function downloadBlob(url) {
+function downloadBlob(url, fileName) {
+
+  const safeFileName = fileName.replace(/[^a-zA-Z0-9.\-_]/g, "_");
+
   const a = document.createElement("a");
   a.href = url;
-  a.download = "decrypted_file";
+  a.download = `decrypted_${safeFileName}`;
   a.click();
 }
 
@@ -363,7 +368,8 @@ async function getFile() {
   const key = prompt("Enter key:");
   const iv = prompt("Enter IV:");
 
-  decryptFile(cid, key, iv);
+  const fileData = await contract.methods.files(fileId).call();
+  decryptFile(cid, key, iv, fileData.fileName);
 }
 
 async function viewFile(fileId) {
@@ -373,6 +379,7 @@ async function viewFile(fileId) {
       .call({ from: account });
 
     const cid = result[1];
+    const fileName = (await contract.methods.files(fileId).call()).fileName;
 
     const key = prompt("Enter decryption key:");
     const iv = prompt("Enter IV:");
@@ -384,7 +391,7 @@ async function viewFile(fileId) {
 
     document.getElementById("fileResult").innerHTML = "🔓 Decrypting...";
 
-    await decryptFile(cid, key, iv);
+    await decryptFile(cid, key, iv, fileName);
 
   } catch (err) {
     console.error(err);
